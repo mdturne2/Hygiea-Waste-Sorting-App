@@ -2,13 +2,13 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default class App extends React.Component {
+  //A constructor for a username and password
+  //planning stuff for when we actually have to keep track of who is using the app
   App(){
     var username = '';
     var password = '';
   }
-  
-  
-  
+  //The basic renderer stuff, just has the basic text on it right now
   render() {
     return (
       <View style={styles.container}>
@@ -29,6 +29,8 @@ const styles = StyleSheet.create({
   },
 });
 
+//Basic "send a request and ask for a result"-type function
+//returns the response as a json and also prints it to the console.
 function askForResult() {
     return fetch('https://www.ourBackEndServer.com/', {
       credentials: 'omit'
@@ -36,8 +38,13 @@ function askForResult() {
       .then(function(response) {
         return response.json();
       })
+      .then(function(myJson) {
+        console.log(myJson);
+      });
 }
 
+//Sends a file to the fetch location, and prints out a response in the form of a json
+//Hoping to test these functions out more once there's an actual photo to send and an actual server to send to.
 function sendPhoto() {
   var form = new FormData();
   var fileField = document.querySelector("input[type='file']");
