@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, AppRegistry, Image } from 'react-native';
 
 export default class App extends React.Component {
   //A constructor for a username and password
@@ -12,10 +12,13 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <Image source={require('HygieaRecycle/assets/logo.png')} style={{width: 300, height: 200}}/>
       </View>
+      //<View style={styles.container}>
+      //  <Text>Open up App.js to start working on your app!</Text>
+      //  <Text>Changes you make will automatically reload.</Text>
+      //  <Text>Shake your phone to open the developer menu.</Text>
+      //</View>
     );
   }
 }
