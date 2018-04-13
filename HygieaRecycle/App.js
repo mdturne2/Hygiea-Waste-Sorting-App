@@ -17,9 +17,8 @@ export default class App extends React.Component {
         <Text>v0.0.0.0001</Text>
         <Button
           onPress={sendPhoto}
-          title="Learn More"
+          title="Take a picture?"
           color="#841584"
-          accessibilityLabel="Learn more about this purple button"
         />
       </View>
     );
