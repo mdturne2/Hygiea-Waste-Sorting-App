@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, AppRegistry, Image } from 'react-native';
+import { StyleSheet, Text, View, AppRegistry, Image, Button } from 'react-native';
 
 export default class App extends React.Component {
   //A constructor for a username and password
@@ -8,17 +8,20 @@ export default class App extends React.Component {
     var username = '';
     var password = '';
   }
+  
   //The basic renderer stuff, just has the basic text on it right now
   render() {
     return (
       <View style={styles.container}>
         <Image source={require('HygieaRecycle/assets/logo.png')} style={{width: 300, height: 200}}/>
+        <Text>v0.0.0.0001</Text>
+        <Button
+          onPress={sendPhoto}
+          title="Learn More"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />
       </View>
-      //<View style={styles.container}>
-      //  <Text>Open up App.js to start working on your app!</Text>
-      //  <Text>Changes you make will automatically reload.</Text>
-      //  <Text>Shake your phone to open the developer menu.</Text>
-      //</View>
     );
   }
 }
