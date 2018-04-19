@@ -5,6 +5,7 @@ import io
 from google.cloud import vision
 from google.cloud.vision import types
 from base64 import b64decode as decode
+from .TrashLabler import decision as decide
 
 def call_vision(img_bin):
     # Instantiates a client
@@ -17,5 +18,4 @@ def call_vision(img_bin):
 
     labels = response.label_annotations
     
-    res=[str(x) for x in labels]
-    return res
+    return decide(str(labels))
