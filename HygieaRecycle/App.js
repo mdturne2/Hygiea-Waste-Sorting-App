@@ -44,6 +44,9 @@ export default class App extends Component<Props> {
         <Text style={styles.capture} onPress={this.takePicture.bind(this)}>
            [CAPTURE]
         </Text>
+        <Text style={styles.capture} onPress={this.sendPhoto.bind(this)}>
+           [SendRequest]
+        </Text>
       </Camera>
 
       </View>
@@ -56,6 +59,23 @@ export default class App extends Component<Props> {
        .catch(err => console.error(err));
   }
 
+  //Sends a file to the fetch location, and prints out a response in the form of a json
+  //Hoping to test these functions out more once there's an actual photo to send and an actual server to send to.
+  sendPhoto() {
+  var form = new FormData();
+  //var fileField = document.querySelector("input[type='file']"); //Picture?
+  
+  //form.append(username, password);
+  //form.append('picture', fileField.files[0]);
+
+  fetch('https://f6d06b5a-e8ce-4ecc-b597-d24738c10709.mock.pstmn.io/PathedWell', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .catch(error => console.error('Error:', error))
+  .then(response => console.log('Success:', response));
+}
 }
 
 const styles = StyleSheet.create({
@@ -95,7 +115,7 @@ const styles = StyleSheet.create({
 //Basic "send a request and ask for a result"-type function
 //returns the response as a json and also prints it to the console.
 function askForResult() {
-    return fetch('https://www.ourBackEndServer.com/', {
+    return fetch('https://f6d06b5a-e8ce-4ecc-b597-d24738c10709.mock.pstmn.io/PathedWell', {
       credentials: 'omit'
     })
       .then(function(response) {
@@ -104,22 +124,4 @@ function askForResult() {
       .then(function(myJson) {
         console.log(myJson);
       });
-}
-
-//Sends a file to the fetch location, and prints out a response in the form of a json
-//Hoping to test these functions out more once there's an actual photo to send and an actual server to send to.
-function sendPhoto() {
-  var form = new FormData();
-  var fileField = document.querySelector("input[type='file']"); //Picture?
-  
-  //form.append(username, password);
-  form.append('picture', fileField.files[0]);
-
-  fetch('https://www.ourBackendServer.com/postData', {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => response.json())
-  .catch(error => console.error('Error:', error))
-  .then(response => console.log('Success:', response));
 }
