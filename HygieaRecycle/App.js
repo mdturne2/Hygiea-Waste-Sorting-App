@@ -11,7 +11,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Dimensions
+  Dimensions,
+  Image
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -27,11 +28,12 @@ export default class App extends Component<Props> {
   
   
   render() {
+
+        // <Image source={require('./assets/logo.png')} style={{width: 300, height: 200}}/>
+        // <Text>v0.0.0.0001</Text>
     return (
       <View style={styles.container}>
 
-        <Image source={require('HygieaRecycle/assets/logo.png')} style={{width: 300, height: 200}}/>
-        <Text>v0.0.0.0001</Text>
 
         <Camera
    ref={(cam) => {
