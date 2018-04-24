@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from trash.views import TrashView
+from user.views import UserView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hywz/',TrashView.as_view(),name='trash')
+    path('trash/',TrashView.as_view(),name='trash'),
+    path('user/',UserView.as_view(),name='user')
 ]
