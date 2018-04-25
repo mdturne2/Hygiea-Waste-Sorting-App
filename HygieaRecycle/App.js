@@ -31,6 +31,11 @@ export default class App extends Component<Props> {
 
         // <Image source={require('./assets/logo.png')} style={{width: 300, height: 200}}/>
         // <Text>v0.0.0.0001</Text>
+      //  <div>
+      //  <form encType="multipart/form-data" action="">
+      //    <input id="id-for-upload-file" onChange={this.addFile.bind(this)} type="file"/>
+      //  </form>
+      //  </div>
     return (
       <View style={styles.container}>
 
@@ -48,29 +53,36 @@ export default class App extends Component<Props> {
            [SendRequest]
         </Text>
       </Camera>
-
       </View>
+      
     );
   }
 
   takePicture() {
-    this.camera.capture()
+    var pic = this.camera.capture()
        .then((data) => console.log(data))
        .catch(err => console.error(err));
+    this.sendPhoto(pic);
   }
 
   //Sends a file to the fetch location, and prints out a response in the form of a json
   //Hoping to test these functions out more once there's an actual photo to send and an actual server to send to.
-  sendPhoto() {
+  sendPhoto(pic) {
   var form = new FormData();
-  //var fileField = document.querySelector("input[type='file']"); //Picture?
   
-  //form.append(username, password);
-  //form.append('picture', fileField.files[0]);
+  form.append('username', 'realUser');
+  form.append('picture', pic);
+  console.log(pic)
 
-  fetch('https://f6d06b5a-e8ce-4ecc-b597-d24738c10709.mock.pstmn.io/PathedWell', {
+  fetch('https://89c3dd76-a7cb-491c-9233-02a5ba4e8049.mock.pstmn.io/PathedWell', {
+    cache: 'no-cache',
+    credentials: 'same-origin',
     method: 'POST',
-    body: formData
+    headers: {'Content-Type':'multipart/form-data'},
+    body: form,
+    mode:'cors',
+    redirect: 'follow',
+    referrer: 'no-referrer'
   })
   .then(response => response.json())
   .catch(error => console.error('Error:', error))
