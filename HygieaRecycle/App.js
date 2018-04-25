@@ -36,25 +36,22 @@ export default class App extends Component<Props> {
       //    <input id="id-for-upload-file" onChange={this.addFile.bind(this)} type="file"/>
       //  </form>
       //  </div>
+      //  <Text style={styles.capture} onPress={this.sendPhoto.bind(this)}>
+      //    [SendRequest]
+      //  </Text>
     return (
       <View style={styles.container}>
-
-
         <Camera
-   ref={(cam) => {
-       this.camera = cam;
-    }}
-    style={styles.preview}
-    aspect={Camera.constants.Aspect.fill}>
+          ref={(cam) => {
+            this.camera = cam;
+          }}
+          style={styles.preview}
+          aspect={Camera.constants.Aspect.fill}>
         <Text style={styles.capture} onPress={this.takePicture.bind(this)}>
            [CAPTURE]
         </Text>
-        <Text style={styles.capture} onPress={this.sendPhoto.bind(this)}>
-           [SendRequest]
-        </Text>
       </Camera>
       </View>
-      
     );
   }
 
@@ -68,26 +65,26 @@ export default class App extends Component<Props> {
   //Sends a file to the fetch location, and prints out a response in the form of a json
   //Hoping to test these functions out more once there's an actual photo to send and an actual server to send to.
   sendPhoto(pic) {
-  var form = new FormData();
+    var form = new FormData();
   
-  form.append('username', 'realUser');
-  form.append('picture', pic);
-  console.log(pic)
+    form.append('username', 'realUser');
+    form.append('picture', pic);
+    console.log(Object.prototype.toString.call(pic));
 
-  fetch('https://89c3dd76-a7cb-491c-9233-02a5ba4e8049.mock.pstmn.io/PathedWell', {
-    cache: 'no-cache',
-    credentials: 'same-origin',
-    method: 'POST',
-    headers: {'Content-Type':'multipart/form-data'},
-    body: form,
-    mode:'cors',
-    redirect: 'follow',
-    referrer: 'no-referrer'
-  })
-  .then(response => response.json())
-  .catch(error => console.error('Error:', error))
-  .then(response => console.log('Success:', response));
-}
+    fetch('https://89c3dd76-a7cb-491c-9233-02a5ba4e8049.mock.pstmn.io/PathedWell', {
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      method: 'POST',
+      headers: {'Content-Type':'multipart/form-data'},
+      body: form,
+      mode:'cors',
+      redirect: 'follow',
+      referrer: 'no-referrer'
+    })
+    .then(response => response.json())
+    .catch(error => console.error('Error:', Object.prototype.toString.call(pic)))
+    .then(response => console.log('Success:', response));
+  }
 }
 
 const styles = StyleSheet.create({
