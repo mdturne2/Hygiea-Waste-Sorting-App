@@ -20,9 +20,6 @@ type Props = {};
 export default class App extends Component<Props> {
   
   
-  App(){
-    var http = "[CAPTURE]";
-  }
   render() {
 
         // <Image source={require('./assets/logo.png')} style={{width: 300, height: 200}}/>
@@ -46,12 +43,6 @@ export default class App extends Component<Props> {
         <Text style={styles.capture} onPress={this.askForResult.bind(this)}>
           [SendRequest]
         </Text>
-        <Text size='large'
-            style={styles.capture}
-            textId={this.http}
-            values={this.props.values}>
-          {this.http}
-        </Text>
       </Camera>
       </View>
       
@@ -73,7 +64,7 @@ export default class App extends Component<Props> {
     form.append('username', 'realUser');
     form.append('picture', pic.Image);
 
-    fetch('http://192.168.0.14:8000/', {
+    fetch('http://192.168.0.14:8000/hwz/trash', {
       cache: 'no-cache',
       credentials: 'same-origin',
       method: 'POST',
@@ -83,7 +74,7 @@ export default class App extends Component<Props> {
       redirect: 'follow',
       referrer: 'no-referrer'
     })
-    .then(response => response.json())
+    .then(response => response.json)
     .catch(error => console.error('Error:', error))
     .then(response => console.log('Success:', response));
   }
@@ -91,7 +82,7 @@ export default class App extends Component<Props> {
   //Basic "send a request and ask for a result"-type function
   //returns the response as a json and also prints it to the console.
   askForResult() {
-    return fetch('http://192.168.0.14:8000/', {
+    return fetch('http://192.168.0.14:8000/hwz/trash', {
       credentials: 'omit'
     })
       .then(function(response) {
