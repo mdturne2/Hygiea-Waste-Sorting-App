@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import Camera from 'react-native-camera';
 import {
@@ -26,7 +20,9 @@ type Props = {};
 export default class App extends Component<Props> {
   
   
-  
+  App(){
+    var http = "[CAPTURE]";
+  }
   render() {
 
         // <Image source={require('./assets/logo.png')} style={{width: 300, height: 200}}/>
@@ -36,9 +32,6 @@ export default class App extends Component<Props> {
       //    <input id="id-for-upload-file" onChange={this.addFile.bind(this)} type="file"/>
       //  </form>
       //  </div>
-      //  <Text style={styles.capture} onPress={this.sendPhoto.bind(this)}>
-      //    [SendRequest]
-      //  </Text>
     return (
       <View style={styles.container}>
         <Camera
@@ -48,10 +41,20 @@ export default class App extends Component<Props> {
           style={styles.preview}
           aspect={Camera.constants.Aspect.fill}>
         <Text style={styles.capture} onPress={this.takePicture.bind(this)}>
-           [CAPTURE]
+          [CAPTURE]
+        </Text>
+        <Text style={styles.capture} onPress={this.askForResult.bind(this)}>
+          [SendRequest]
+        </Text>
+        <Text size='large'
+            style={styles.capture}
+            textId={this.http}
+            values={this.props.values}>
+          {this.http}
         </Text>
       </Camera>
       </View>
+      
     );
   }
 
@@ -68,10 +71,9 @@ export default class App extends Component<Props> {
     var form = new FormData();
   
     form.append('username', 'realUser');
-    form.append('picture', pic);
-    console.log(Object.prototype.toString.call(pic));
+    form.append('picture', pic.Image);
 
-    fetch('https://89c3dd76-a7cb-491c-9233-02a5ba4e8049.mock.pstmn.io/PathedWell', {
+    fetch('http://192.168.0.14:8000/', {
       cache: 'no-cache',
       credentials: 'same-origin',
       method: 'POST',
@@ -82,8 +84,22 @@ export default class App extends Component<Props> {
       referrer: 'no-referrer'
     })
     .then(response => response.json())
-    .catch(error => console.error('Error:', Object.prototype.toString.call(pic)))
+    .catch(error => console.error('Error:', error))
     .then(response => console.log('Success:', response));
+  }
+
+  //Basic "send a request and ask for a result"-type function
+  //returns the response as a json and also prints it to the console.
+  askForResult() {
+    return fetch('http://192.168.0.14:8000/', {
+      credentials: 'omit'
+    })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(myJson) {
+        console.log(myJson);
+      });
   }
 }
 
@@ -120,17 +136,3 @@ const styles = StyleSheet.create({
     margin: 40
  }
 });
-
-//Basic "send a request and ask for a result"-type function
-//returns the response as a json and also prints it to the console.
-function askForResult() {
-    return fetch('https://f6d06b5a-e8ce-4ecc-b597-d24738c10709.mock.pstmn.io/PathedWell', {
-      credentials: 'omit'
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(myJson) {
-        console.log(myJson);
-      });
-}
