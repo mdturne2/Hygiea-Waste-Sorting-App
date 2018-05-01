@@ -1,0 +1,135 @@
+Scanning folders for symlinks in C:\Users\tkallaus\Documents\GitHub\Hygiea-Waste-Sorting-App\HygieaRecycle\node_modules (58ms)
+Starting JS server...
+Building and installing the app on the device (cd android && gradlew.bat installDebug)...
+Incremental java compilation is an incubating feature.
+:app:preBuild UP-TO-DATE
+:app:preDebugBuild UP-TO-DATE
+:app:checkDebugManifest
+:app:preReleaseBuild UP-TO-DATE
+:react-native-camera:preBuild UP-TO-DATE
+:react-native-camera:preReleaseBuild UP-TO-DATE
+:react-native-camera:checkReleaseManifest
+:react-native-camera:preDebugAndroidTestBuild UP-TO-DATE
+:react-native-camera:preDebugBuild UP-TO-DATE
+:react-native-camera:preDebugUnitTestBuild UP-TO-DATE
+:react-native-camera:preReleaseUnitTestBuild UP-TO-DATE
+:react-native-camera:prepareComAndroidSupportAppcompatV72301Library UP-TO-DATE
+:react-native-camera:prepareComAndroidSupportExifinterface2710Library UP-TO-DATE
+:react-native-camera:prepareComAndroidSupportSupportCompat2601Library UP-TO-DATE
+:react-native-camera:prepareComAndroidSupportSupportCoreUi2601Library UP-TO-DATE
+:react-native-camera:prepareComAndroidSupportSupportCoreUtils2601Library UP-TO-DATE
+:react-native-camera:prepareComAndroidSupportSupportFragment2601Library UP-TO-DATE
+:react-native-camera:prepareComAndroidSupportSupportMediaCompat2601Library UP-TO-DATE
+:react-native-camera:prepareComAndroidSupportSupportV42601Library UP-TO-DATE
+:react-native-camera:prepareComFacebookFbuiTextlayoutbuilderTextlayoutbuilder100Library UP-TO-DATE
+:react-native-camera:prepareComFacebookFrescoDrawee130Library UP-TO-DATE
+:react-native-camera:prepareComFacebookFrescoFbcore130Library UP-TO-DATE
+:react-native-camera:prepareComFacebookFrescoFresco130Library UP-TO-DATE
+:react-native-camera:prepareComFacebookFrescoImagepipeline130Library UP-TO-DATE
+:react-native-camera:prepareComFacebookFrescoImagepipelineBase130Library UP-TO-DATE
+:react-native-camera:prepareComFacebookFrescoImagepipelineOkhttp3130Library UP-TO-DATE
+:react-native-camera:prepareComFacebookReactReactNative0552Library UP-TO-DATE
+:react-native-camera:prepareComFacebookSoloaderSoloader010Library UP-TO-DATE
+:react-native-camera:prepareComGithubReactNativeCommunityCameraviewD529251d24c0a367a28eea28f0eac2269d12f772Library UP-TO-DATE
+:react-native-camera:prepareComGoogleAndroidGmsPlayServicesBase1020Library UP-TO-DATE
+:react-native-camera:prepareComGoogleAndroidGmsPlayServicesBasement1020Library UP-TO-DATE
+:react-native-camera:prepareComGoogleAndroidGmsPlayServicesTasks1020Library UP-TO-DATE
+:react-native-camera:prepareComGoogleAndroidGmsPlayServicesVision1020Library UP-TO-DATE
+:react-native-camera:prepareOrgWebkitAndroidJscR174650Library UP-TO-DATE
+:react-native-camera:prepareReleaseDependencies
+:react-native-camera:compileReleaseAidl UP-TO-DATE
+:react-native-camera:compileReleaseNdk UP-TO-DATE
+:react-native-camera:compileLint UP-TO-DATE
+:react-native-camera:copyReleaseLint UP-TO-DATE
+:react-native-camera:compileReleaseRenderscript UP-TO-DATE
+:react-native-camera:generateReleaseBuildConfig UP-TO-DATE
+:react-native-camera:generateReleaseResValues UP-TO-DATE
+:react-native-camera:generateReleaseResources UP-TO-DATE
+:react-native-camera:mergeReleaseResources UP-TO-DATE
+:react-native-camera:processReleaseManifest UP-TO-DATE
+:react-native-camera:processReleaseResources UP-TO-DATE
+:react-native-camera:generateReleaseSources UP-TO-DATE
+:react-native-camera:incrementalReleaseJavaCompilationSafeguard UP-TO-DATE
+:react-native-camera:compileReleaseJavaWithJavac UP-TO-DATE
+:react-native-camera:extractReleaseAnnotations UP-TO-DATE
+:react-native-camera:mergeReleaseShaders UP-TO-DATE
+:react-native-camera:compileReleaseShaders UP-TO-DATE
+:react-native-camera:generateReleaseAssets UP-TO-DATE
+:react-native-camera:mergeReleaseAssets UP-TO-DATE
+:react-native-camera:mergeReleaseProguardFiles UP-TO-DATE
+:react-native-camera:packageReleaseRenderscript UP-TO-DATE
+:react-native-camera:packageReleaseResources UP-TO-DATE
+:react-native-camera:processReleaseJavaRes UP-TO-DATE
+:react-native-camera:transformResourcesWithMergeJavaResForRelease UP-TO-DATE
+:react-native-camera:transformClassesAndResourcesWithSyncLibJarsForRelease UP-TO-DATE
+:react-native-camera:mergeReleaseJniLibFolders UP-TO-DATE
+:react-native-camera:transformNative_libsWithMergeJniLibsForRelease UP-TO-DATE
+:react-native-camera:transformNative_libsWithSyncJniLibsForRelease UP-TO-DATE
+:react-native-camera:bundleRelease UP-TO-DATE
+:app:prepareAndroidArchLifecycleRuntime100Library UP-TO-DATE
+:app:prepareComAndroidSupportAppcompatV72301Library UP-TO-DATE
+:app:prepareComAndroidSupportExifinterface2710Library UP-TO-DATE
+:app:prepareComAndroidSupportSupportCompat2610Library UP-TO-DATE
+:app:prepareComAndroidSupportSupportCoreUi2610Library UP-TO-DATE
+:app:prepareComAndroidSupportSupportCoreUtils2610Library UP-TO-DATE
+:app:prepareComAndroidSupportSupportFragment2610Library UP-TO-DATE
+:app:prepareComAndroidSupportSupportMediaCompat2610Library UP-TO-DATE
+:app:prepareComAndroidSupportSupportV42610Library UP-TO-DATE
+:app:prepareComFacebookFbuiTextlayoutbuilderTextlayoutbuilder100Library UP-TO-DATE
+:app:prepareComFacebookFrescoDrawee130Library UP-TO-DATE
+:app:prepareComFacebookFrescoFbcore130Library UP-TO-DATE
+:app:prepareComFacebookFrescoFresco130Library UP-TO-DATE
+:app:prepareComFacebookFrescoImagepipeline130Library UP-TO-DATE
+:app:prepareComFacebookFrescoImagepipelineBase130Library UP-TO-DATE
+:app:prepareComFacebookFrescoImagepipelineOkhttp3130Library UP-TO-DATE
+:app:prepareComFacebookReactReactNative0552Library UP-TO-DATE
+:app:prepareComFacebookSoloaderSoloader010Library UP-TO-DATE
+:app:prepareComGithubReactNativeCommunityCameraviewD529251d24c0a367a28eea28f0eac2269d12f772Library UP-TO-DATE
+:app:prepareComGoogleAndroidGmsPlayServicesBase1201Library UP-TO-DATE
+:app:prepareComGoogleAndroidGmsPlayServicesBaseLicense1201Library UP-TO-DATE
+:app:prepareComGoogleAndroidGmsPlayServicesBasement1201Library UP-TO-DATE
+:app:prepareComGoogleAndroidGmsPlayServicesBasementLicense1201Library UP-TO-DATE
+:app:prepareComGoogleAndroidGmsPlayServicesTasks1201Library UP-TO-DATE
+:app:prepareComGoogleAndroidGmsPlayServicesTasksLicense1201Library UP-TO-DATE
+:app:prepareComGoogleAndroidGmsPlayServicesVision1201Library UP-TO-DATE
+:app:prepareComGoogleAndroidGmsPlayServicesVisionCommon1201Library UP-TO-DATE
+:app:prepareComGoogleAndroidGmsPlayServicesVisionCommonLicense1201Library UP-TO-DATE
+:app:prepareComGoogleAndroidGmsPlayServicesVisionLicense1201Library UP-TO-DATE
+:app:prepareHygieaWasteSortingAppReactNativeCameraUnspecifiedLibrary UP-TO-DATE
+:app:prepareOrgWebkitAndroidJscR174650Library UP-TO-DATE
+:app:prepareDebugDependencies
+:app:compileDebugAidl UP-TO-DATE
+:app:compileDebugRenderscript UP-TO-DATE
+:app:generateDebugBuildConfig UP-TO-DATE
+:app:mergeDebugShaders UP-TO-DATE
+:app:compileDebugShaders UP-TO-DATE
+:app:generateDebugAssets UP-TO-DATE
+:app:mergeDebugAssets
+:app:generateDebugResValues UP-TO-DATE
+:app:generateDebugResources UP-TO-DATE
+:app:mergeDebugResources UP-TO-DATE
+:app:bundleDebugJsAndAssets SKIPPED
+:app:processDebugManifest UP-TO-DATE
+:app:processDebugResources UP-TO-DATE
+:app:generateDebugSources UP-TO-DATE
+:app:incrementalDebugJavaCompilationSafeguard UP-TO-DATE
+:app:compileDebugJavaWithJavac UP-TO-DATE
+:app:compileDebugNdk UP-TO-DATE
+:app:compileDebugSources UP-TO-DATE
+:app:transformClassesWithDexForDebug UP-TO-DATE
+:app:mergeDebugJniLibFolders UP-TO-DATE
+:app:transformNative_libsWithMergeJniLibsForDebug UP-TO-DATE
+:app:processDebugJavaRes UP-TO-DATE
+:app:transformResourcesWithMergeJavaResForDebug UP-TO-DATE
+:app:validateSigningDebug
+:app:packageDebug
+:app:assembleDebug
+:app:installDebug
+Installing APK 'app-debug.apk' on 'SM-N950U - 7.1.1' for app:debug
+Installed on 1 device.
+
+BUILD SUCCESSFUL
+
+Total time: 42.085 secs
+Starting the app (C:\Users\tkallaus\AppData\Local\Android\Sdk/platform-tools/adb shell am start -n com.hygieawastesortingapp/com.hygieawastesortingapp.MainActivity...
+Starting: Intent { cmp=com.hygieawastesortingapp/.MainActivity launchParam=MultiScreenLaunchParams { mDisplayId=0 mBaseDisplayId=0 mFlags=0 } }
