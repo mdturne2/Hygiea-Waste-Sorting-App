@@ -68,7 +68,7 @@ public class IntentServiceActivity extends AppCompatActivity {
             try {
                 HttpClient httpClient = new DefaultHttpClient();
                 HttpContext localContext = new BasicHttpContext();
-                HttpPost httpPost = new HttpPost("http://192.168.0.14:8000/trash/");
+                HttpPost httpPost = new HttpPost("http://10.156.95.185:8000/trash/");
 
                 File f = new File(context, "temp.bmp");
                 f.createNewFile();
@@ -105,11 +105,12 @@ public class IntentServiceActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String resultTxt) {
             super.onPostExecute(resultTxt);
-            Toast.makeText(IntentServiceActivity.this, "Image Uploaded", Toast.LENGTH_LONG).show();
-            Log.d("response", resultTxt);
-            if (result != null) result.setText(resultTxt);
-            Log.d("Debug", "the end!");
-
+            //Toast.makeText(IntentServiceActivity.this, "Image Uploaded", Toast.LENGTH_LONG).show();
+            if (result != null){
+                Log.d("response", resultTxt);
+                result.setText(resultTxt);
+                Log.d("Debug", "the end!");
+            }
         }
     }
 }
