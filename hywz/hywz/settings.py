@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'hywz.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.abspath(os.path.join(BASE_DIR, 'db.sqlite3')),
     }
 }
-
+'''
 MONGODB_DATABASES = {
     "default": {
         "name": "hywzdb",
@@ -104,7 +104,7 @@ connect(MONGODB_DATABASES['default']['name'],
     username=MONGODB_DATABASES['default']['username'],
     password=MONGODB_DATABASES['default']['password']
     )
-
+'''
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -142,3 +142,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+       
+   ),
+   'DEFAULT_PERMISSION_CLASSES': (
+        
+   )
+    
+}
