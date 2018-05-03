@@ -43,7 +43,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'trash',
     'vision',
-    'user'
+    'user',
+    'rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration'
 ]
 
 MIDDLEWARE = [
@@ -143,13 +148,24 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+import datetime as dt
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA':dt.timedelta(hours=1),
+    'JWT_ALLOW_REFRESH':True,
+}
 
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-       
-   ),
-   'DEFAULT_PERMISSION_CLASSES': (
-        
-   )
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        #'rest_framework.authentication.SessionAuthentication',
+        #'rest_framework.authentication.BasicAuthentication',
+    )
     
 }
+
+REST_USE_JWT = True
+
+SITE_ID = 1

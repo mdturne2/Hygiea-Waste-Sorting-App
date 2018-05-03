@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import datetime as dt
 
-from rest_framework import serializers,viewsets,response
+from rest_framework import serializers,response
 
 # Create your models here.
 class Trash(models.Model):

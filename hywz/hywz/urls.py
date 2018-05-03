@@ -16,10 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from trash.views import TrashView
-from user.views import UserView
+from user.views import CreateUser,Login
+from django.conf.urls import include,url
+from rest_framework_jwt.views import refresh_jwt_token
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('trash/',TrashView.as_view(),name='trash'),
-    path('user/',UserView.as_view(),name='user')
+    path(r'admin/', admin.site.urls),
+    path(r'trash/',TrashView.as_view(),name='trash'),
+    path(r'user/',CreateUser.as_view(),name='user'),
+    path(r'login/',Login.as_view(),name='login'),
+    url(r'rest-auth/',include('rest_auth.urls')),
+    url(r'rest-auth/registration/',include('rest_auth.registration.urls')),
+    url(r'refresh-token/',refresh_jwt_token)
 ]
