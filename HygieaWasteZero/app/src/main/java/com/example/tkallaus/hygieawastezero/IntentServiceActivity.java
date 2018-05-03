@@ -13,11 +13,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+import com.koushikdutta.ion.ProgressCallback;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.protocol.BasicHttpContext;
@@ -66,16 +71,16 @@ public class IntentServiceActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                HttpClient httpClient = new DefaultHttpClient();
+                /*HttpClient httpClient = new DefaultHttpClient();
                 HttpContext localContext = new BasicHttpContext();
-                HttpPost httpPost = new HttpPost("http://10.156.95.185:8000/trash/");
+                HttpPost httpPost = new HttpPost("http://192.168.0.19:8000/trash/");*/
 
                 File f = new File(context, "temp.bmp");
                 f.createNewFile();
 
                 //Convert bitmap to byte array
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 0 /*ignored for PNG*/, bos);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 0 , bos);
                 byte[] bitmapdata = bos.toByteArray();
 
                 //write the bytes in file
@@ -84,20 +89,45 @@ public class IntentServiceActivity extends AppCompatActivity {
                 fos.flush();
                 fos.close();
 
-                MultipartEntity entity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
+                Ion.with(IntentServiceActivity.this)
+                        .load("POST","http://192.168.0.19:8000/trash/")
+                        .uploadProgressHandler(new ProgressCallback() {
+                            @Override
+                            public void onProgress(long downloaded, long total) {
 
-                entity.addPart("image", new FileBody(f));
+                            }
+                        })
+                        .setMultipartFile("image","image/jpeg",f)
+                        .asString()
+                        .setCallback(new FutureCallback<String>() {
+                            @Override
+                            public void onCompleted(Exception e, String res) {
+                                if(res != null){
+                                    result.setText(res);
+                                }
+                                else{
+                                    result.setText("Upload Failed");
+                                }
+                            }
+                        });
 
-                httpPost.setEntity(entity);
+                /*MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+                builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
+                builder.addPart("image",new FileBody(f));
+
+
+                httpPost.setEntity(builder.build());
 
                 HttpResponse response = httpClient.execute(httpPost, localContext);
                 String responseTxt = EntityUtils.toString(response.getEntity());
-
-                return responseTxt;
+                */
+                return (String)result.getText();
             } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+                Log.e("HYWZ:ERROR:",Log.getStackTraceString(e));
             } catch (IOException e) {
-                e.printStackTrace();
+                Log.e("HYWZ:ERROR:",Log.getStackTraceString(e));
+            }catch(Exception e){
+                Log.e("HYWZ:ERROR:",Log.getStackTraceString(e));
             }
             return null;
         }

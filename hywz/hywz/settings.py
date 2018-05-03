@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from mongoengine import connect
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +28,7 @@ SECRET_KEY = '-73r$&r1z^r=c6#epe6#hv)5ke(#@3a1z%pfkpvq4qmvs4k407'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -86,6 +87,23 @@ DATABASES = {
     }
 }
 
+MONGODB_DATABASES = {
+    "default": {
+        "name": "hywzdb",
+        "host": "localhost",
+        "port": 27017,
+        "username":"hywzadmin",
+        "password":"!hywz401",
+        "tz_aware": True,  # if you use timezones in django (USE_TZ = True)
+    }
+}
+
+connect(MONGODB_DATABASES['default']['name'],
+    host=MONGODB_DATABASES['default']['host'],
+    port=MONGODB_DATABASES['default']['port'],
+    username=MONGODB_DATABASES['default']['username'],
+    password=MONGODB_DATABASES['default']['password']
+    )
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
